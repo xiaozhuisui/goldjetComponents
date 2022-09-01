@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-09-01 18:21:54
  * @LastEditors: 追随
- * @LastEditTime: 2022-09-01 18:24:41
+ * @LastEditTime: 2022-09-01 18:42:44
  */
 import { defineConfig } from 'dumi';
 
@@ -14,5 +14,6 @@ export default defineConfig({
   mode: 'site',
   base: '/goldjetComponents',
   publicPath: '/goldjetComponents/',
+  exportStatic: {},
   // more config: https://d.umijs.org/config
 });
