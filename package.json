@@ -1,7 +1,15 @@
 {
-  "private": true,
-  "name": "goldjetComponents",
+  "private": false,
+  "name": "goldjet-components",
+  "description": "高捷二期组件",
+  "license":"MIT",
   "version": "1.0.0",
+  "keywords": ["goldjet","components"],
+  "homepage":"",
+  "repository": {
+    "type":"git",
+    "url":""
+  },
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",

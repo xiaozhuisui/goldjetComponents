@@ -10,7 +10,7 @@ Demo:
 
 ```tsx
 import React from 'react';
-import { Foo } from 'goldjetComponents';
+import { Foo } from 'goldjet-components';
 
 export default () => <Foo title="First Demo" />;
 ```
