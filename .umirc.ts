@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-09-01 18:21:54
  * @LastEditors: 追随
- * @LastEditTime: 2022-09-02 16:44:02
+ * @LastEditTime: 2022-09-03 19:51:12
  */
 import { defineConfig } from 'dumi';
 
@@ -16,7 +16,7 @@ function slash(path: string) {
   return path.replace(/\\/g, '/');
 }
 export default defineConfig({
-  title: 'goldjetComponents',
+  title: '高捷集团',
   favicon:
     'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
   logo: 'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
@@ -27,6 +27,14 @@ export default defineConfig({
   exportStatic: {},
   theme: {
     'primary-color': '#E82D1E',
+  },
+  mfsu: {
+    development: {
+      output: './.mfsu-dev',
+    },
+    // production: {
+    //   output: '.mfsu-prod'
+    // }
   },
   lessLoader: {},
   cssLoader: {
@@ -53,5 +61,12 @@ export default defineConfig({
       },
     },
   },
-  // more config: https://d.umijs.org/config
+  // locale: {
+  //   // default zh-CN
+  //   default: 'zh-CN',
+  //   antd: true,
+  //   // default true, when it is true, will use `navigator.language` overwrite default
+  //   baseNavigator: true,
+  // },
+  sula: { locale: { default: 'zh-CN' } },
 });

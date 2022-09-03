@@ -1,0 +1,210 @@
+.carNumberConetent {
+  float: left;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.driverInfoContent {
+  float: left;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.baseItemContent {
+  float: left;
+  padding: 0 5px;
+}
+.baseItemContent1 {
+  float: left;
+  padding: 0 5px;
+}
+
+.spanLabel {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100px;
+  padding-right: 8px;
+  text-align: right;
+}
+
+.spanLabel1 {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 150px;
+  padding-right: 8px;
+  text-align: right;
+}
+
+.content {
+  min-width: 1410px;
+  overflow: scroll;
+  border-top: 1px solid silver;
+}
+
+.xuhao {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #ff9068;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.carSelect {
+  :global {
+    .ant-select-selector {
+      border: none !important;
+    }
+  }
+}
+
+.dispatchContent {
+  :global {
+    .ant-input:hover {
+      border-color: #f55847 !important;
+      border-right-width: 1px !important;
+    }
+    .ant-input:focus,
+    .ant-input-focused {
+      border-color: #f55847;
+      border-right-width: 1px !important;
+      outline: 0;
+      // box-shadow: 0 0 0 2px rgba(232, 45, 30, 0.2);
+    }
+    .ant-select:hover {
+      border-color: #f55847 !important;
+      border-right-width: 1px !important;
+    }
+    .ant-select:focus,
+    .ant-select-focused {
+      border-color: #f55847;
+      border-right-width: 1px !important;
+      outline: 0;
+      // box-shadow: 0 0 0 2px rgba(232, 45, 30, 0.2);
+    }
+  }
+}
+
+.stack_title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.driver_box {
+  position: relative;
+  min-height: 145px;
+  padding: 5px;
+  padding-top: 20px;
+  border: 1px solid #cbd2da;
+  border-radius: 4px;
+  cursor: pointer;
+  .driver_base_info {
+  }
+  .driver_name {
+    color: rgb(16, 16, 16);
+    font-size: 20px;
+  }
+  .driver_card {
+    margin-left: 4px;
+    color: rgba(16, 16, 16, 0.65);
+    font-size: 14px;
+  }
+
+  .driver_task {
+    display: flex;
+    align-items: center;
+  }
+
+  .driver_task_address {
+  }
+  .task_time {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .address {
+    color: rgba(16, 16, 16, 0.65);
+    font-size: 13px;
+  }
+
+  .driver_status {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    padding: 1px 4px;
+    font-size: 14px;
+    border-top-right-radius: 4px;
+  }
+  .status_nothing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 24px;
+    color: #fff;
+    background-color: #1d92fe;
+    border-bottom-left-radius: 4px;
+  }
+  .status_transfer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 24px;
+    color: #fff;
+    background-color: #00c276;
+    border-bottom-left-radius: 4px;
+  }
+
+  .driver_position {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 2px 6px;
+  }
+}
+.driver_bg {
+  background-color: #f3f9ff;
+}
+
+.car_info_box {
+  width: 220px;
+  border: 1px solid #cbd2da;
+  .group {
+    max-height: 472px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .car_info_detail {
+    padding: 15px 43px;
+    font-size: 14px;
+    background-color: #f2f3f8;
+  }
+
+  :global {
+    .ant-space,
+    .ant-space-item,
+    .ant-radio-wrapper,
+    .ant-radio-group {
+      width: 100%;
+    }
+
+    .ant-radio-wrapper {
+      padding: 10px 20px;
+    }
+
+    .ant-radio-checked .ant-radio-inner {
+      border-color: #ff4c20;
+    }
+
+    .ant-radio-inner::after {
+      background-color: #ff4c20;
+    }
+  }
+}

@@ -5,9 +5,28 @@
     "moduleResolution": "node",
     "jsx": "react",
     "esModuleInterop": true,
-    "types": ["jest"],
     "strict": true,
     "skipLibCheck": true,
-    "declaration": true
-  }
+    "declaration": true,
+    "types": ["jest"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@@/*": ["./src/.umi/*"]
+    }
+  },
+  "include": [
+    "mock/**/*",
+    "src/**/*",
+    "tests/**/*",
+    "test/**/*",
+    "__test__/**/*",
+    "typings/**/*",
+    "config/**/*",
+    ".eslintrc.js",
+    ".stylelintrc.js",
+    ".prettierrc.js",
+    "jest.config.js",
+    "mock/*"
+  ],
+  "exclude": ["node_modules", "build", "dist", "scripts", "src/.umi/*", "webpack", "jest"]
 }

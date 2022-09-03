@@ -1,0 +1,80 @@
+.edit_table {
+  color: red;
+
+  :global {
+    .notShow {
+      display: none;
+    }
+
+    .ant-table-thead > tr {
+      width: 100%;
+    }
+
+    .ant-table-thead > tr > th {
+      min-width: 200px;
+      padding: 5px 10px;
+    }
+
+    .ant-table-tbody > tr > td {
+      height: 28px;
+      background-color: #fff !important;
+
+      &:hover {
+        background-color: #fff !important;
+      }
+
+      .ant-row.ant-form-item {
+        margin-bottom: 0 !important;
+      }
+
+      .ant-select-selector,
+      input {
+        border: 0;
+      }
+
+      .ant-select-selector {
+        height: 26px;
+      }
+    }
+  }
+
+  .table_tip {
+    margin: 5px 0;
+    padding: 5px 14px;
+    color: #ff4c20;
+    background-color: rgba(255, 76, 32, 0.1);
+  }
+}
+
+.ismarger {
+  :global {
+    .ant-spin-nested-loading {
+      margin-top: 16px;
+    }
+  }
+}
+
+.isSmall {
+  :global {
+    .ant-table-thead > tr > th {
+      min-width: 100px;
+      padding: 5px 10px;
+    }
+  }
+}
+
+.editable-row .ant-form-item-explain {
+  position: absolute;
+  top: 100%;
+  font-size: 12px;
+}
+
+.operateBtnStyle:hover {
+  color: #f55847 !important;
+  border: hidden !important;
+}
+
+.operateBtnStyle {
+  padding: 0px !important;
+  border: hidden !important;
+}

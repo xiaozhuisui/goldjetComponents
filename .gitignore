@@ -24,3 +24,7 @@
 # ide
 /.vscode
 /.idea
+
+/.mfsu-dev
+/.mfsu-prod
+/dist
