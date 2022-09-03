@@ -1,0 +1,1 @@
+(self["webpackChunkgoldjet_components"]=self["webpackChunkgoldjet_components"]||[]).push([[3134],{3134:function(n){n.exports={contTop:"antd-pro-_plugins-custom-plugin-field-bs-table-field-index-contTop",contTopSelect:"antd-pro-_plugins-custom-plugin-field-bs-table-field-index-contTopSelect",cont:"antd-pro-_plugins-custom-plugin-field-bs-table-field-index-cont"}}}]);

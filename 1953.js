@@ -1,0 +1,1 @@
+(self["webpackChunkgoldjet_components"]=self["webpackChunkgoldjet_components"]||[]).push([[1953],{1953:function(n){n.exports={number_range:"antd-pro-_plugins-custom-plugin-field-bs-number-range-index-number_range"}}}]);
