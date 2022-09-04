@@ -1,4 +1,4 @@
-// @ts-nocheck 完美解决爆红
+// @ts-nocheck
 import React, { ReactElement } from 'react';
 import { DownOutlined, SearchOutlined, SyncOutlined } from '@ant-design/icons';
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
@@ -15,7 +15,7 @@ import { QueryForm } from 'sula';
 import { useLocation, request } from 'umi';
 import styles from './index.less';
 
-import { BtnItemProps, IFields } from './typing';
+import { BtnItemProps } from './typing';
 
 export interface IQueryProps {
   /**
@@ -49,11 +49,10 @@ export interface IQueryProps {
    */
   handleConverter?: Function; // 支持识别 TypeScript 可选类型为非必选属性
   /**
-   * 可以这样写属性描述
    * @description       设置超过多少搜索项出现
    * @default 3
    */
-  visibleFieldsCount?: number; // 支持识别 TypeScript 可选类型为非必选属性
+  visibleFieldsCount?: number;
   /**
    * 可以这样写属性描述
    * @description  设置了将会出现数量统计栏 查看示例就行 其中 value 是传递给后端的值 type 是后端返回data中数据的key 不清楚按下F12
@@ -65,7 +64,7 @@ export interface IQueryProps {
    * @description        与上方相对应 相信能看懂
    * @default id
    */
-  selectDatasInfo?: object;
+  selectDatasInfo?: { url?: string; method?: 'get' | 'post' | 'delete' };
   /**
    *
    * @description       按钮中的每一项 其中disabled 可传 Boolean Function 不传的话需要勾选数据才会启用 另外还有下拉菜单的示例 以及可以直接传一个render
@@ -105,6 +104,7 @@ export interface IQueryProps {
    * @default
    */
   otherParams?: object;
+  // [key:string ]:any
 }
 export default forwardRef((props: IQueryProps, ref: any) => {
   const {
