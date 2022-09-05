@@ -1,25 +1,25 @@
 /*
  * @Date: 2022-09-02 18:22:43
  * @LastEditors: 追随
- * @LastEditTime: 2022-09-03 18:27:12
+ * @LastEditTime: 2022-09-05 09:40:05
  */
 
 export { requestConfig as request } from './_utils';
 import {
-  registerFieldPlugins,
-  registerRenderPlugins,
-  registerActionPlugins,
-  registerFilterPlugins,
-  Icon,
+  registerFieldPlugins as slRegisterFieldPlugins,
+  registerRenderPlugins as slRegisterRenderPlugins,
+  registerActionPlugins as slRegisterActionPlugins,
+  registerFilterPlugins as slRegisterFilterPlugins,
+  Icon as slIcon,
 } from 'sula';
 import { UserOutlined } from '@ant-design/icons';
 // 注册插件
-registerFieldPlugins();
-registerRenderPlugins();
-registerActionPlugins();
-registerFilterPlugins();
+slRegisterFieldPlugins();
+slRegisterRenderPlugins();
+slRegisterActionPlugins();
+slRegisterFilterPlugins();
 // 注册icon
-Icon.iconRegister({
+slIcon.iconRegister({
   user: UserOutlined,
 });
 import '@/_plugins';

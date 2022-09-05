@@ -27,4 +27,7 @@
 
 /.mfsu-dev
 /.mfsu-prod
+
 /dist
+
+dist/esm/index.js

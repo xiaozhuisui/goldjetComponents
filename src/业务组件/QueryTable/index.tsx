@@ -58,7 +58,7 @@ export interface IQueryProps {
    * @description  设置了将会出现数量统计栏 查看示例就行 其中 value 是传递给后端的值 type 是后端返回data中数据的key 不清楚按下F12
    * @default
    */
-  selectDatas?: []; // 支持识别 TypeScript 可选类型为非必选属性
+  selectDatas?: any[]; // 支持识别 TypeScript 可选类型为非必选属性
   /**
    *
    * @description        与上方相对应 相信能看懂

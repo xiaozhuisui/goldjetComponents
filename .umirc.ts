@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-09-01 18:21:54
  * @LastEditors: 追随
- * @LastEditTime: 2022-09-03 19:51:12
+ * @LastEditTime: 2022-09-05 09:25:48
  */
 import { defineConfig } from 'dumi';
 
@@ -61,12 +61,12 @@ export default defineConfig({
       },
     },
   },
-  // locale: {
-  //   // default zh-CN
-  //   default: 'zh-CN',
-  //   antd: true,
-  //   // default true, when it is true, will use `navigator.language` overwrite default
-  //   baseNavigator: true,
-  // },
+  locale: {
+    // default zh-CN
+    default: 'zh-CN',
+    antd: true,
+    // default true, when it is true, will use `navigator.language` overwrite default
+    baseNavigator: true,
+  },
   sula: { locale: { default: 'zh-CN' } },
 });
