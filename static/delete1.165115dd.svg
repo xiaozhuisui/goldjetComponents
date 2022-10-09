@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>筛选-状态一</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="列表搜索区功能特性设计：" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板" transform="translate(-133.000000, -23.000000)">
+            <g id="筛选-状态一" transform="translate(133.000000, 23.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="蒙版" fill="#D8D8D8" opacity="0" xlink:href="#path-1"></use>
+                <g id="ashbin" mask="url(#mask-2)">
+                    <g transform="translate(5.000000, 4.000000)"></g>
+                </g>
+                <path d="M8.493,9.77053718 L9.10013334,18.5688389 L15.0464,18.5688389 L15.6530667,9.77053718 L17.0554,9.77053718 L16.4426667,18.6694972 C16.3909798,19.4188792 15.7812853,19.9998571 15.0464,20 L9.10013334,20 C8.36508056,19.9998394 7.75532036,19.4185905 7.70386668,18.6690201 L7.0902,9.77053718 L8.493,9.77053718 Z M11.5403333,10.2137201 L11.5403333,16.8924721 L10.1403333,16.8924721 L10.1403333,10.2137201 L11.5403333,10.2137201 Z M14.1,10.2137201 L14.1,16.8924721 L12.7,16.8924721 L12.7,10.2137201 L14.1,10.2137201 Z M5,7.38526859 L19,7.38526859 L19,8.81642974 L5,8.81642974 L5,7.38526859 Z M14.9199333,5 L14.9199333,6.43116115 L9.31993334,6.43116115 L9.31993334,5 L14.9199333,5 Z" id="ashbin" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

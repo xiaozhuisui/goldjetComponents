@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 3</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="列表搜索区功能特性设计：" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="列表搜索区-竖排" transform="translate(-224.000000, -187.000000)">
+            <g id="编组-4" transform="translate(200.000000, 126.000000)">
+                <g id="编组-8" transform="translate(0.000000, 56.000000)">
+                    <g id="确定备份" transform="translate(20.000000, 1.000000)">
+                        <g id="编组-3" transform="translate(4.000000, 4.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="蒙版" fill="#494949" opacity="0" xlink:href="#path-1"></use>
+                            <g id="nav-list" mask="url(#mask-2)" fill="#000000" fill-rule="nonzero">
+                                <g transform="translate(12.384218, 12.082237) rotate(-270.000000) translate(-12.384218, -12.082237) translate(3.134218, 4.030256)">
+                                    <path d="M12.0431626,13.7336944 L12.0431626,15.4047475 L6,15.4047475 L6,13.7336944 L12.0431626,13.7336944 Z M14.6554528,9.11378942 L6,9.11378942 L6,7.44273626 L14.6554528,7.44273626 L14.6554528,9.11378942 Z M18.5,1.15177811 L18.5,2.82283127 L6,2.82283127 L6,1.15177811 L14.7441086,1.15177811 L18.5,1.15177811 Z" id="形状结合"></path>
+                                    <polygon id="路径备份-2" transform="translate(3.000000, 8.603962) scale(1, -1) rotate(-90.000000) translate(-3.000000, -8.603962) " points="10.5 7.76843517 10.5 9.43948833 -4.5 9.43948833 -3.5 7.76843517"></polygon>
+                                    <polygon id="路径" transform="translate(1.917763, 2.634218) scale(-1, 1) translate(-1.917763, -2.634218) " points="3.83552658 3.26843517 3.83552658 5.26843517 0 2 0 0"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

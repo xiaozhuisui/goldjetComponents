@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>修改</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="24"></rect>
+    </defs>
+    <g id="列表搜索区功能特性设计：" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="列表搜索区-竖排" transform="translate(-810.000000, -238.000000)">
+            <g id="筛选区" transform="translate(588.000000, 183.000000)">
+                <g id="编组-6" transform="translate(26.000000, 51.000000)">
+                    <g id="修改" transform="translate(196.000000, 4.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="蒙版" fill="#D8D8D8" opacity="0" xlink:href="#path-1"></use>
+                        <g id="编组" mask="url(#mask-2)" fill="#72A4FF" fill-rule="nonzero">
+                            <g transform="translate(5.000000, 4.000000)" id="形状结合">
+                                <path d="M14,14.3568204 L14,16 L0,16 L0,14.3568204 L14,14.3568204 Z M9.9936666,0.240550368 L12.1939999,2.56482795 C12.4976303,2.88565865 12.4976303,3.40572525 12.1939999,3.72655595 L3.41366664,13.0014833 C3.34078456,13.0782765 3.24205189,13.1214354 3.1391111,13.1214354 L0.777777779,13.1214354 C0.348222973,13.1214354 0,12.7535972 0,12.2998456 L0,9.80549896 C0,9.69675953 0.0408574774,9.59246527 0.113555549,9.51547776 L8.89388882,0.240550368 C9.19761093,-0.080183456 9.68994449,-0.080183456 9.9936666,0.240550368 Z M9.44377772,1.98396396 L1.55555554,10.3165278 L1.55555554,11.4782558 L2.65533332,11.4782558 L10.5435555,3.14569194 L9.44377772,1.98396396 Z"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
