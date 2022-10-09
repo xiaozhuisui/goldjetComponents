@@ -1,10 +1,11 @@
 /*
  * @Date: 2022-08-01 14:30:46
  * @LastEditors: 追随
- * @LastEditTime: 2022-09-04 15:15:20
+ * @LastEditTime: 2022-10-09 18:59:59
  */
 import { InboxOutlined } from '@ant-design/icons';
 import { Button, message, Modal, Upload, UploadProps } from 'antd';
+import { RcFile } from 'antd/lib/upload';
 import React from 'react';
 import { useState } from 'react';
 import { request } from 'umi';
@@ -65,22 +66,25 @@ const TemplateUploadModal: React.FC<ITemplateUploadModalProps> = (
   const draggerProps: UploadProps = {
     // name: 'file',
     multiple,
-    // action,
+    beforeUpload: (file, list) => {
+      setFileData(file);
+      return false;
+    },
     maxCount,
     onChange(info) {
-      const { status } = info.file;
-      setLoading(true);
-      if (status !== 'uploading') {
-        console.log(info.file, info.fileList);
-      }
-      if (status === 'done') {
-        message.success(`${info.file.name} 上传成功！`);
-        setFileData(info);
-        setLoading(false);
-      } else if (status === 'error') {
-        message.error(`${info.file.name} 上传失败！`);
-        setLoading(false);
-      }
+      // const { status } = info.file;
+      // setLoading(true);
+      // if (status !== 'uploading') {
+      //   console.log(info.file, info.fileList);
+      // }
+      // if (status === 'done') {
+      //   message.success(`${info.file.name} 上传成功！`);
+      //   setFileData(info);
+      //   setLoading(false);
+      // } else if (status === 'error') {
+      //   message.error(`${info.file.name} 上传失败！`);
+      //   setLoading(false);
+      // }
     },
     onDrop(e) {
       console.log('Dropped files', e.dataTransfer.files);
@@ -95,6 +99,9 @@ const TemplateUploadModal: React.FC<ITemplateUploadModalProps> = (
   };
   // 处理完成事件
   const handleOk = () => {
+    if (!fileData) {
+      return message.error('请上传模板');
+    }
     success?.(fileData);
     setVisible(false);
   };
