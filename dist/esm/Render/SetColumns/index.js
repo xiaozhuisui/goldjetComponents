@@ -136,7 +136,7 @@ function _arrayWithHoles(arr) {
 /*
  * @Date: 2022-09-01 20:27:53
  * @LastEditors: 追随
- * @LastEditTime: 2022-09-02 22:23:40
+ * @LastEditTime: 2022-10-04 21:02:07
  */
 import { Menu, Checkbox, Space, Tooltip, message, Dropdown, Button } from 'antd';
 import React, { useState } from 'react';
@@ -151,51 +151,55 @@ import {
 import { jsx as _jsx } from 'react/jsx-runtime';
 import { jsxs as _jsxs } from 'react/jsx-runtime';
 import { Fragment as _Fragment } from 'react/jsx-runtime';
+
+var getColumns = function getColumns(props) {
+  // 这里先假设只有一层
+  return props.columns;
+};
+
 export default function SetColoums(props) {
-  var columns = props.columns;
+  var setConfig = {
+    props: props,
+  };
+  var columns = getColumns(props); // 半选
 
   var _useState = useState(false),
     _useState2 = _slicedToArray(_useState, 2),
     indeterminate = _useState2[0],
-    setIndeterminate = _useState2[1];
+    setIndeterminate = _useState2[1]; // 全选
 
   var _useState3 = useState(true),
     _useState4 = _slicedToArray(_useState3, 2),
     checkAll = _useState4[0],
-    setCheckAll = _useState4[1];
+    setCheckAll = _useState4[1]; // 置顶的
 
   var _useState5 = useState([]),
     _useState6 = _slicedToArray(_useState5, 2),
     topColumns = _useState6[0],
-    setTopColumns = _useState6[1];
+    setTopColumns = _useState6[1]; // 没置顶的
 
   var _useState7 = useState([]),
     _useState8 = _slicedToArray(_useState7, 2),
     btmColumns = _useState8[0],
-    setBtmColumns = _useState8[1];
+    setBtmColumns = _useState8[1]; // 初始化的
 
-  var _useState9 = useState(props),
+  var _useState9 = useState(props.columns),
     _useState10 = _slicedToArray(_useState9, 2),
-    value = _useState10[0],
-    setValue = _useState10[1];
+    initColumns = _useState10[0],
+    setInitColumns = _useState10[1]; // 已经选了的
 
-  var _useState11 = useState(props.columns),
-    _useState12 = _slicedToArray(_useState11, 2),
-    initColumns = _useState12[0],
-    setInitColumns = _useState12[1];
-
-  var _useState13 = useState(
+  var _useState11 = useState(
       columns.map(function (d) {
         return d.key || d.dataIndex;
       }),
     ),
-    _useState14 = _slicedToArray(_useState13, 2),
-    checkedList = _useState14[0],
-    setCheckedList = _useState14[1];
+    _useState12 = _slicedToArray(_useState11, 2),
+    checkedList = _useState12[0],
+    setCheckedList = _useState12[1]; // 深拷贝一层
 
-  var _useState15 = useState(cloneDeep(columns)),
-    _useState16 = _slicedToArray(_useState15, 1),
-    initColumnsPure = _useState16[0];
+  var _useState13 = useState(cloneDeep(columns)),
+    _useState14 = _slicedToArray(_useState13, 1),
+    initColumnsPure = _useState14[0]; // 点击全选
 
   var onCheckAllChange = function onCheckAllChange(e) {
     var columnsKey = [].concat(
@@ -210,57 +214,6 @@ export default function SetColoums(props) {
         }),
       ),
     );
-
-    if (e.target.checked) {
-      setValue(
-        _objectSpread(
-          _objectSpread({}, value),
-          {},
-          {
-            columns: [].concat(
-              _toConsumableArray(
-                topColumns.map(function (r) {
-                  return _objectSpread(
-                    _objectSpread({}, r),
-                    {},
-                    {
-                      fixed: 'left',
-                    },
-                  );
-                }),
-              ),
-              _toConsumableArray(
-                initColumns.filter(function (r) {
-                  return !r.topFixed && !r.btmFixed && !columnsKey.includes(r.key || r.dataIndex);
-                }),
-              ),
-              _toConsumableArray(
-                btmColumns.map(function (r) {
-                  return _objectSpread(
-                    _objectSpread({}, r),
-                    {},
-                    {
-                      fixed: 'right',
-                    },
-                  );
-                }),
-              ),
-            ),
-          },
-        ),
-      );
-    } else {
-      setValue(
-        _objectSpread(
-          _objectSpread({}, value),
-          {},
-          {
-            columns: [],
-          },
-        ),
-      );
-    }
-
     setCheckedList(
       e.target.checked
         ? initColumnsPure.map(function (d) {
@@ -270,72 +223,26 @@ export default function SetColoums(props) {
     );
     setIndeterminate(false);
     setCheckAll(e.target.checked);
-  };
+  }; // 子项目选择
 
   var onChange = function onChange(list) {
+    console.log(list);
     setCheckedList(list);
     var columnsKey = [].concat(
       _toConsumableArray(
         topColumns.map(function (d) {
-          return d.key || d.dataIndex;
+          return d.key || d.dataIndex || d.title;
         }),
       ),
       _toConsumableArray(
         btmColumns.map(function (d) {
-          return d.key || d.dataIndex;
+          return d.key || d.dataIndex || d.title;
         }),
-      ),
-    );
-    setValue(
-      _objectSpread(
-        _objectSpread({}, value),
-        {},
-        {
-          columns: [].concat(
-            _toConsumableArray(
-              topColumns
-                .map(function (r) {
-                  return _objectSpread(
-                    _objectSpread({}, r),
-                    {},
-                    {
-                      fixed: 'left',
-                    },
-                  );
-                })
-                .filter(function (d) {
-                  return list.includes(d.key || d.dataIndex);
-                }),
-            ),
-            _toConsumableArray(
-              initColumns.filter(function (d) {
-                return (
-                  list.includes(d.key || d.dataIndex) && !columnsKey.includes(d.key || d.dataIndex)
-                );
-              }),
-            ),
-            _toConsumableArray(
-              btmColumns
-                .map(function (r) {
-                  return _objectSpread(
-                    _objectSpread({}, r),
-                    {},
-                    {
-                      fixed: 'right',
-                    },
-                  );
-                })
-                .filter(function (d) {
-                  return list.includes(d.key || d.dataIndex);
-                }),
-            ),
-          ),
-        },
       ),
     );
     setIndeterminate(!!list.length && list.length < initColumnsPure.length);
     setCheckAll(list.length === initColumnsPure.length);
-  }; // d 每个元素
+  }; // d 每个元素 取消固定
 
   var cancelFixed = function cancelFixed(d, type) {
     initColumns[
@@ -367,39 +274,6 @@ export default function SetColoums(props) {
       setBtmColumns(_toConsumableArray(btmColumns));
     }
 
-    setValue(
-      _objectSpread(
-        _objectSpread({}, value),
-        {},
-        {
-          columns: [].concat(
-            _toConsumableArray(
-              topColumns.map(function (r) {
-                return _objectSpread(
-                  _objectSpread({}, r),
-                  {},
-                  {
-                    fixed: 'left',
-                  },
-                );
-              }),
-            ),
-            _toConsumableArray(initColumns),
-            _toConsumableArray(
-              btmColumns.map(function (r) {
-                return _objectSpread(
-                  _objectSpread({}, r),
-                  {},
-                  {
-                    fixed: 'right',
-                  },
-                );
-              }),
-            ),
-          ),
-        },
-      ),
-    );
     setInitColumns(_toConsumableArray(initColumns));
   };
 
@@ -425,43 +299,6 @@ export default function SetColoums(props) {
       );
     }
 
-    setValue(
-      _objectSpread(
-        _objectSpread({}, value),
-        {},
-        {
-          columns: [].concat(
-            _toConsumableArray(
-              topColumns.map(function (r) {
-                return _objectSpread(
-                  _objectSpread({}, r),
-                  {},
-                  {
-                    fixed: 'left',
-                  },
-                );
-              }),
-            ),
-            _toConsumableArray(
-              initColumns.filter(function (r) {
-                return !r.topFixed && !r.btmFixed;
-              }),
-            ),
-            _toConsumableArray(
-              btmColumns.map(function (r) {
-                return _objectSpread(
-                  _objectSpread({}, r),
-                  {},
-                  {
-                    fixed: 'right',
-                  },
-                );
-              }),
-            ),
-          ),
-        },
-      ),
-    );
     setBtmColumns(_toConsumableArray(btmColumns));
     setTopColumns(_toConsumableArray(topColumns));
     setInitColumns(_toConsumableArray(initColumns));
@@ -489,43 +326,6 @@ export default function SetColoums(props) {
       );
     }
 
-    setValue(
-      _objectSpread(
-        _objectSpread({}, value),
-        {},
-        {
-          columns: [].concat(
-            _toConsumableArray(
-              topColumns.map(function (r) {
-                return _objectSpread(
-                  _objectSpread({}, r),
-                  {},
-                  {
-                    fixed: 'left',
-                  },
-                );
-              }),
-            ),
-            _toConsumableArray(
-              initColumns.filter(function (r) {
-                return !r.topFixed && !r.btmFixed;
-              }),
-            ),
-            _toConsumableArray(
-              btmColumns.map(function (r) {
-                return _objectSpread(
-                  _objectSpread({}, r),
-                  {},
-                  {
-                    fixed: 'right',
-                  },
-                );
-              }),
-            ),
-          ),
-        },
-      ),
-    );
     setTopColumns(_toConsumableArray(topColumns));
     setBtmColumns(_toConsumableArray(btmColumns));
     setInitColumns(_toConsumableArray(initColumns));
@@ -573,15 +373,6 @@ export default function SetColoums(props) {
               );
               setIndeterminate(false);
               setCheckAll(true);
-              setValue(
-                _objectSpread(
-                  _objectSpread({}, value),
-                  {},
-                  {
-                    columns: initColumnsPure,
-                  },
-                ),
-              );
             },
             children: '\u91CD\u7F6E',
           }),
@@ -614,10 +405,10 @@ export default function SetColoums(props) {
                   /*#__PURE__*/ _jsx(
                     Checkbox,
                     {
-                      value: d.key || d.dataIndex,
+                      value: d.key || d.dataIndex || d.title,
                       children: d.title,
                     },
-                    d.key || d.dataIndex,
+                    d.title || d.key || d.dataIndex,
                   ),
                   /*#__PURE__*/ _jsxs(Space, {
                     children: [
@@ -700,17 +491,6 @@ export default function SetColoums(props) {
                                     initColumns[myIndex],
                                   )[0];
                                   setInitColumns(_toConsumableArray(initColumns));
-                                  setValue(
-                                    _objectSpread(
-                                      _objectSpread({}, value),
-                                      {},
-                                      {
-                                        columns: initColumns.filter(function (d) {
-                                          return checkedList.includes(d.key || d.dataIndex);
-                                        }),
-                                      },
-                                    ),
-                                  );
                                 },
                               }),
                             }),
@@ -739,17 +519,6 @@ export default function SetColoums(props) {
                                     initColumns[myIndex],
                                   )[0];
                                   setInitColumns(_toConsumableArray(initColumns));
-                                  setValue(
-                                    _objectSpread(
-                                      _objectSpread({}, value),
-                                      {},
-                                      {
-                                        columns: initColumns.filter(function (d) {
-                                          return checkedList.includes(d.key || d.dataIndex);
-                                        }),
-                                      },
-                                    ),
-                                  );
                                 },
                               }),
                             }),

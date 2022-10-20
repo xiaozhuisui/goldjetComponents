@@ -1,8 +1,9 @@
 /*
  * @Date: 2022-09-01 20:27:53
  * @LastEditors: 追随
- * @LastEditTime: 2022-09-02 22:23:40
+ * @LastEditTime: 2022-10-04 21:02:07
  */
+
 import { Menu, Checkbox, Space, Tooltip, message, Dropdown, Button } from 'antd';
 import React, { useState } from 'react';
 import { cloneDeep } from 'lodash';
@@ -13,73 +14,56 @@ import {
   VerticalAlignMiddleOutlined,
   VerticalAlignTopOutlined,
 } from '@ant-design/icons';
-import { history } from 'umi-history';
 
 interface IProps {
   columns: { title: string; topFixed?: boolean; btmFixed?: boolean }[];
 }
+const getColumns = (props: { columns: any[]; [T: string]: any }): any[] => {
+  // 这里先假设只有一层
+  return props.columns;
+};
+
 export default function SetColoums(props: IProps) {
-  const { columns } = props;
+  const setConfig = { props };
+
+  const columns = getColumns(props);
+  // 半选
   const [indeterminate, setIndeterminate] = useState<boolean>(false);
+  // 全选
   const [checkAll, setCheckAll] = useState<boolean>(true);
+  // 置顶的
   const [topColumns, setTopColumns] = useState<any>([]);
+  // 没置顶的
   const [btmColumns, setBtmColumns] = useState<any>([]);
-  const [value, setValue] = useState(props);
+  // 初始化的
   const [initColumns, setInitColumns] = useState(props.columns);
+  // 已经选了的
   const [checkedList, setCheckedList] = useState(columns.map((d: any) => d.key || d.dataIndex));
+  // 深拷贝一层
   const [initColumnsPure]: any = useState(cloneDeep(columns));
+  // 点击全选
   const onCheckAllChange = (e: any) => {
     const columnsKey = [
       ...topColumns.map((d: any) => d.key || d.dataIndex),
       ...btmColumns.map((d: any) => d.key || d.dataIndex),
     ];
-    if (e.target.checked) {
-      setValue({
-        ...value,
-        columns: [
-          ...topColumns.map((r: any) => ({ ...r, fixed: 'left' })),
-          ...initColumns.filter(
-            (r: any) => !r.topFixed && !r.btmFixed && !columnsKey.includes(r.key || r.dataIndex),
-          ),
-          ...btmColumns.map((r: any) => ({ ...r, fixed: 'right' })),
-        ],
-      });
-    } else {
-      setValue({
-        ...value,
-        columns: [],
-      });
-    }
     setCheckedList(e.target.checked ? initColumnsPure.map((d: any) => d.key || d.dataIndex) : []);
     setIndeterminate(false);
     setCheckAll(e.target.checked);
   };
+  // 子项目选择
   const onChange = (list: any) => {
+    console.log(list);
     setCheckedList(list);
     const columnsKey = [
-      ...topColumns.map((d: any) => d.key || d.dataIndex),
-      ...btmColumns.map((d: any) => d.key || d.dataIndex),
+      ...topColumns.map((d: any) => d.key || d.dataIndex || d.title),
+      ...btmColumns.map((d: any) => d.key || d.dataIndex || d.title),
     ];
 
-    setValue({
-      ...value,
-      columns: [
-        ...topColumns
-          .map((r: any) => ({ ...r, fixed: 'left' }))
-          .filter((d: any) => list.includes(d.key || d.dataIndex)),
-        ...initColumns.filter(
-          (d: any) =>
-            list.includes(d.key || d.dataIndex) && !columnsKey.includes(d.key || d.dataIndex),
-        ),
-        ...btmColumns
-          .map((r: any) => ({ ...r, fixed: 'right' }))
-          .filter((d: any) => list.includes(d.key || d.dataIndex)),
-      ],
-    });
     setIndeterminate(!!list.length && list.length < initColumnsPure.length);
     setCheckAll(list.length === initColumnsPure.length);
   };
-  // d 每个元素
+  // d 每个元素 取消固定
   const cancelFixed = (d: any, type: string) => {
     initColumns[
       initColumns.findIndex((r: any) => (r.key || r.dataIndex) === (d.key || d.dataIndex))
@@ -100,14 +84,6 @@ export default function SetColoums(props: IProps) {
       );
       setBtmColumns([...btmColumns]);
     }
-    setValue({
-      ...value,
-      columns: [
-        ...topColumns.map((r: any) => ({ ...r, fixed: 'left' })),
-        ...initColumns,
-        ...btmColumns.map((r: any) => ({ ...r, fixed: 'right' })),
-      ],
-    });
     setInitColumns([...initColumns]);
   };
 
@@ -125,15 +101,6 @@ export default function SetColoums(props: IProps) {
         1,
       );
     }
-
-    setValue({
-      ...value,
-      columns: [
-        ...topColumns.map((r: any) => ({ ...r, fixed: 'left' })),
-        ...initColumns.filter((r: any) => !r.topFixed && !r.btmFixed),
-        ...btmColumns.map((r: any) => ({ ...r, fixed: 'right' })),
-      ],
-    });
     setBtmColumns([...btmColumns]);
     setTopColumns([...topColumns]);
     setInitColumns([...initColumns]);
@@ -153,15 +120,6 @@ export default function SetColoums(props: IProps) {
         1,
       );
     }
-
-    setValue({
-      ...value,
-      columns: [
-        ...topColumns.map((r: any) => ({ ...r, fixed: 'left' })),
-        ...initColumns.filter((r: any) => !r.topFixed && !r.btmFixed),
-        ...btmColumns.map((r: any) => ({ ...r, fixed: 'right' })),
-      ],
-    });
     setTopColumns([...topColumns]);
     setBtmColumns([...btmColumns]);
     setInitColumns([...initColumns]);
@@ -186,10 +144,6 @@ export default function SetColoums(props: IProps) {
             setCheckedList(initColumnsPure.map((d: any) => d.key || d.dataIndex));
             setIndeterminate(false);
             setCheckAll(true);
-            setValue({
-              ...value,
-              columns: initColumnsPure,
-            });
           }}
         >
           重置
@@ -209,7 +163,7 @@ export default function SetColoums(props: IProps) {
             key={d.key || d.dataIndex}
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            <Checkbox key={d.key || d.dataIndex} value={d.key || d.dataIndex}>
+            <Checkbox key={d.title || d.key || d.dataIndex} value={d.key || d.dataIndex || d.title}>
               {d.title}
             </Checkbox>
             <Space>
@@ -266,12 +220,6 @@ export default function SetColoums(props: IProps) {
                             initColumns[myIndex],
                           )[0];
                           setInitColumns([...initColumns]);
-                          setValue({
-                            ...value,
-                            columns: initColumns.filter((d: any) =>
-                              checkedList.includes(d.key || d.dataIndex),
-                            ),
-                          });
                         }}
                       />
                     </Tooltip>
@@ -295,12 +243,6 @@ export default function SetColoums(props: IProps) {
                             initColumns[myIndex],
                           )[0];
                           setInitColumns([...initColumns]);
-                          setValue({
-                            ...value,
-                            columns: initColumns.filter((d: any) =>
-                              checkedList.includes(d.key || d.dataIndex),
-                            ),
-                          });
                         }}
                       />
                     </Tooltip>
@@ -364,6 +306,7 @@ export default function SetColoums(props: IProps) {
   );
   return (
     <div style={{ maxWidth: 600 }}>
+      {/* @ts-ignore */}
       <Dropdown overlay={menu} trigger={['click']}>
         <Button onClick={(e) => e.preventDefault()} type="primary">
           自定义列表

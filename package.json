@@ -3,7 +3,7 @@
   "name": "goldjet-components",
   "description": "高捷二期组件",
   "license": "MIT",
-  "version": "1.0.8",
+  "version": "1.1.1",
   "keywords": [
     "goldjet",
     "components"
@@ -47,10 +47,12 @@
     "@types/qs": "^6.9.7",
     "@umijs/preset-react": "^2.1.6",
     "antd": "4.16.13",
+    "bssula": "^2.1.29",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "react": "^18.0.0",
     "sula": "^1.2.0-beta.68",
+    "umi-plugin-bssula": "^2.1.26",
     "umi-plugin-sula": "^1.0.0-beta.2",
     "warning": "^4.0.3"
   },

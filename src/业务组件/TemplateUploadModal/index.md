@@ -11,22 +11,19 @@ Demo:
 ```tsx
 import React from 'react';
 import { TemplateUploadModal } from 'goldjet-components';
+import { request } from 'bssula';
 const templateUploadModalConfig = {
   url: '/api/warehousetransport/ownerWarehouse/downloadTemplate',
   templateName: '库存分配模板',
   success: (fileData: any) => {
-    const { file } = fileData;
-    if (!file) {
-      return message.info('请上传文件');
-    }
     const formData = new FormData();
-    formData.append('file', file.originFileObj);
+    formData.append('file', fileData);
     request({
       url: '/api/warehousetransport/ownerWarehouse/importAssignInfo',
       method: 'post',
       params: formData,
       converter: () => {
-        forwardedRef.current.tableRef.current.refreshTable();
+        alert('发送成功！');
       },
     });
   },
