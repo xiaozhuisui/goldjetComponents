@@ -3,7 +3,7 @@
   "name": "goldjet-components",
   "description": "高捷二期组件",
   "license": "MIT",
-  "version": "1.1.1",
+  "version": "1.1.4",
   "keywords": [
     "goldjet",
     "components"
@@ -15,6 +15,7 @@
   },
   "scripts": {
     "start": "dumi dev",
+    "dev": "dumi dev",
     "docs:build": "dumi build",
     "docs:deploy": "gh-pages -d docs-dist",
     "build": "father build",

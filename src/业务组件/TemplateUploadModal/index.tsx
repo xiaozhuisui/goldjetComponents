@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-08-01 14:30:46
  * @LastEditors: 追随
- * @LastEditTime: 2022-10-09 18:59:59
+ * @LastEditTime: 2022-10-17 15:34:22
  */
 import { InboxOutlined } from '@ant-design/icons';
 import { Button, message, Modal, Upload, UploadProps } from 'antd';
@@ -46,6 +46,12 @@ export interface ITemplateUploadModalProps {
    * @default 1
    */
   maxCount?: number;
+
+  /**
+   * @description       下载模板的回调 如果有就不会有默认行为
+   * @default
+   */
+  dowmFn?: (data: any) => void;
 }
 const TemplateUploadModal: React.FC<ITemplateUploadModalProps> = (
   props: ITemplateUploadModalProps,
@@ -62,6 +68,7 @@ const TemplateUploadModal: React.FC<ITemplateUploadModalProps> = (
     linkText = '下载模板',
     url = '',
     maxCount = 1,
+    dowmFn,
   } = props;
   const draggerProps: UploadProps = {
     // name: 'file',
@@ -94,7 +101,11 @@ const TemplateUploadModal: React.FC<ITemplateUploadModalProps> = (
   const handleDown = async () => {
     const { success, data } = await request(url, { method: 'get' });
     if (success) {
-      window.open(data);
+      if (dowmFn) {
+        dowmFn(data);
+      } else {
+        window.open(data);
+      }
     }
   };
   // 处理完成事件
@@ -102,14 +113,14 @@ const TemplateUploadModal: React.FC<ITemplateUploadModalProps> = (
     if (!fileData) {
       return message.error('请上传模板');
     }
-    success?.(fileData);
-    setVisible(false);
+    success?.(fileData, setVisible);
   };
   return (
     <>
       <Button type="primary" onClick={() => setVisible(true)}>
         {buttonText}
       </Button>
+      {/* @ts-ignore */}
       <Modal
         title={title}
         visible={visible}

@@ -15,7 +15,7 @@ import { request } from 'bssula';
 const templateUploadModalConfig = {
   url: '/api/warehousetransport/ownerWarehouse/downloadTemplate',
   templateName: '库存分配模板',
-  success: (fileData: any) => {
+  success: (fileData: any, setVisible: any) => {
     const formData = new FormData();
     formData.append('file', fileData);
     request({
@@ -24,6 +24,7 @@ const templateUploadModalConfig = {
       params: formData,
       converter: () => {
         alert('发送成功！');
+        setVisible(false);
       },
     });
   },

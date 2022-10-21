@@ -140,6 +140,7 @@ export default class PicturesWall extends React.Component<any, ComponentState> {
       title,
       disabled,
       align = 'left',
+      accept = '.jpg, .jpeg, .png,image/png, image/jpeg',
     }: any = this.props;
     const uploadButton = (
       <div className="flex-center flex-column">
@@ -157,7 +158,7 @@ export default class PicturesWall extends React.Component<any, ComponentState> {
           // @ts-ignore
           fileList={fileList}
           onPreview={this.handlePreview}
-          accept=""
+          accept={accept}
           disabled={ctx.mode === 'view' || disabled}
           onRemove={this.handleRemove}
           onChange={this.handleChange}
